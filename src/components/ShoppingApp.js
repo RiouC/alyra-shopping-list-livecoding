@@ -1,19 +1,31 @@
-import { useState } from "react"
-import ShoppingList from "./ShoppingList"
-import AddProductForm from "./AddProductForm"
-import AddPopularProduct from "./AddPopularProduct"
+import { useState, useEffect } from "react";
+import ShoppingList from "./ShoppingList";
+import AddProductForm from "./AddProductForm";
+import AddPopularProduct from "./AddPopularProduct";
 
 const ShoppingApp = () => {
-  const [shopping, setShopping] = useState(["curry", "cumin", "café"])
-  const [filter, setFilter] = useState("")
+  const getInitialShopping = () => JSON.parse(localStorage.getItem("myShoppinglist")) || [];
+  const [shopping, setShopping] = useState(getInitialShopping);
+  const [filter, setFilter] = useState("");
   const addToShoppingList = (product) => {
-    setShopping([...shopping, product])
-    setFilter("")
-  }
+    setShopping([...shopping, product]);
+    setFilter("");
+  };
 
   const removeFromShoppingList = (product) => {
-    setShopping(shopping.filter((el) => el !== product))
-  }
+    setShopping(shopping.filter((el) => el !== product));
+  };
+
+  useEffect(() => {
+    document.title =
+      shopping.length === 0
+        ? `Préparez vos courses`
+        : `${shopping.length} produit(s) sur votre liste de courses`;
+  }, [shopping]);
+
+  useEffect(() => {
+    localStorage.setItem("myShoppingList", JSON.stringify(shopping));
+  }, [shopping]);
 
   return (
     <main className="row">
@@ -39,7 +51,7 @@ const ShoppingApp = () => {
         </div>
       </section>
     </main>
-  )
+  );
 }
 
-export default ShoppingApp
+export default ShoppingApp;
