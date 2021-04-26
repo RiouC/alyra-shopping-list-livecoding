@@ -4,7 +4,7 @@ const Header = () => {
       <h1>Ma liste des courses</h1>
       <p lang="en">Let's go shopping! Yay !!</p>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

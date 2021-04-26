@@ -5,8 +5,8 @@ const AddPopularProduct = (props) => {
     { text: "pizza", emoji: "🍕" },
     { text: "salade", emoji: "🥬" },
     { text: "oranges", emoji: "🍊" },
-  ]
-  const { shopping, addToShoppingList } = props
+  ];
+    const { shopping, addToShoppingList } = props;
 
   return (
     <section>
@@ -25,11 +25,11 @@ const AddPopularProduct = (props) => {
                 {el.emoji}
               </span>
             </button>
-          )
+          );
         })}
       </div>
     </section>
-  )
+  );
 }
 
-export default AddPopularProduct
+export default AddPopularProduct;

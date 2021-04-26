@@ -1,11 +1,11 @@
-import Product from "./Product"
+import Product from "./Product";
 const ShoppingList = (props) => {
-  const { shopping, removeFromShoppingList, filter, setFilter } = props
+    const { shopping, removeFromShoppingList, filter, setFilter } = props;
 
   const handleInputChange = (event) => {
-    setFilter(event.target.value)
-  }
-  const filteredShopping = shopping.filter((el) => el.startsWith(filter))
+      setFilter(event.target.value);
+  };
+    const filteredShopping = shopping.filter((el) => el.startsWith(filter));
 
   return (
     <>
@@ -48,7 +48,7 @@ const ShoppingList = (props) => {
                 removeFromShoppingList={removeFromShoppingList}
               />
             </li>
-          )
+          );
         })}
       </ol>
     </>

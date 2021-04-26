@@ -2,16 +2,16 @@ const AddProductForm = (props) => {
   const { shopping, addToShoppingList } = props
 
   const handleFormSubmit = (event) => {
-    event.preventDefault()
-    console.log(event.target.elements.product.value)
-    const newProduct = event.target.elements.product.value
+      event.preventDefault();
+      console.log(event.target.elements.product.value);
+      const newProduct = event.target.elements.product.value;
     if (!shopping.includes(newProduct)) {
-      addToShoppingList(newProduct)
+        addToShoppingList(newProduct);
     } else {
-      alert("Produit déjà sur la liste")
+        alert("Produit déjà sur la liste");
     }
-    event.target.reset()
-  }
+      event.target.reset();
+  };
   return (
     <form className="mb-5" onSubmit={handleFormSubmit}>
       <div className="input-group mb-2">
@@ -26,7 +26,7 @@ const AddProductForm = (props) => {
         </button>
       </div>
     </form>
-  )
+  );
 }
 
-export default AddProductForm
+export default AddProductForm;
